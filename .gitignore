@@ -4,3 +4,4 @@ out
 dist/*
 out/*
 package-lock.json
+testresult.json

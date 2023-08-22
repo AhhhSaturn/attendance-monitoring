@@ -7,6 +7,8 @@ import { unparse } from "papaparse";
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from "@serialport/parser-readline";
 
+// Locale-independent format
+const timestampFormat = new Intl.DateTimeFormat('en-GB', { dateStyle: 'short', timeStyle: 'medium' });
 
 export let formattedData: Array<CardData> = [];
 // @ts-ignore
@@ -100,7 +102,7 @@ export const appendCSVFile = async (data: string, formattedDataLength: number) =
 export const handleData = (data: CardData, formattedData: CardData[]) => {
     // return on error
     if (data.error !== '') return alert(`The last card scanned failed with the following reason:\n${data.error}\n\nPlease try again.`);
-    data.timestamp = new Date().toLocaleString();
+    data.timestamp = timestampFormat.format(Date.now());
 
     const previousData = formattedData.at(-1);
     // compare the serial number and university number to the last entry in the array, if they are the same data (prevents rapid duplicate entries)
