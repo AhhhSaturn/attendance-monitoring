@@ -1,17 +1,17 @@
-# attendance-monitoring
+# Attendance Monitoring
 
 make sure you change the save location in config.json
 
 Packaged: `resources/app/config.json`
 Development: `config.json`
 
+``` bash
+bun i
+bun run tauri dev
 ```
-npm i
-npm run start
-```
-
 
 ## User Guide
+
 ![read below for text description](./User%20Guide.png)
 
 - On the first screen select the card reader you want to use or select the mock reader if you just want to look around.
